@@ -13,7 +13,7 @@ migrate_uid() {
 
     ID=$(getent passwd "$1" | cut -d: -f3)
 
-    if [ $ID != "$2" ]; then
+    if [ "$ID" != "$2" ]; then
         usermod --uid "$2" "$1"
         find "${3:-/}" -user "$ID" -exec chown -h "$1" {} \;
     fi
@@ -34,7 +34,7 @@ migrate_gid() {
 
     ID=$(getent group "$1" | cut -d: -f3)
 
-    if [ $ID != "$2" ]; then
+    if [ "$ID" != "$2" ]; then
         groupmod --gid "$2" "$1"
         find "${3:-/}" -group "$ID" -exec chgrp -h "$1" {} \;
     fi
