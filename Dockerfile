@@ -1,4 +1,4 @@
-FROM alpine:3.23.3
+FROM alpine:3.24.2
 
 LABEL maintainer="michal@sotolar.com"
 
